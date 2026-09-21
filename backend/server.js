@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const studentRoutes = require("../backend/routes/studentRoute")
 const cors = require("cors");
 require("dotenv").config();
 const PORT = 5000;
 
 app.use(cors());
 app.use(express.json());
+app.use("/",studentRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hello");
